@@ -78,12 +78,12 @@ INSERT INTO `Nasabah` (`NIK`, `NamaNasabah`, `AlamatNasabah`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `Rekening` (
-  `NORekening` int(11) NOT NULL AUTO_INCREMENT,
+  `NoRekening` int(11) NOT NULL AUTO_INCREMENT,
   `SALDO` float DEFAULT NULL,
   `STATUS` varchar(10) DEFAULT NULL,
   `NIK` int(11) NOT NULL,
   `IDCabang` int(11) NOT NULL,
-  PRIMARY KEY (`NORekening`),
+  PRIMARY KEY (`NoRekening`),
   KEY `IDCabang` (`IDCabang`),
   KEY `NIK` (`NIK`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=7890003 DEFAULT CHARSET=utf8mb4;
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `Rekening` (
 -- Dumping data for table `Rekening`
 --
 
-INSERT INTO `Rekening` (`NORekening`, `SALDO`, `STATUS`, `NIK`, `IDCabang`) VALUES
+INSERT INTO `Rekening` (`NoRekening`, `SALDO`, `STATUS`, `NIK`, `IDCabang`) VALUES
 (7890001, 1000, 'Active', 3021001, 10001),
 (7890002, 1000, 'Aktive', 3121001, 10004);
 
@@ -134,12 +134,12 @@ INSERT INTO `Teller` (`IDTeller`, `NamaTeller`, `AlamatTeller`, `TipeTeller`, `I
 
 CREATE TABLE IF NOT EXISTS `Transaksi` (
   `IDTransaksi` int(11) NOT NULL AUTO_INCREMENT,
-  `NORekening` int(11) NOT NULL,
+  `NoRekening` int(11) NOT NULL,
   `AMOUNT` float NOT NULL,
   `TipeTransaksi` varchar(1) DEFAULT NULL,
   `IDTeller` int(11) DEFAULT NULL,
   PRIMARY KEY (`IDTransaksi`),
-  KEY `NORekening` (`NORekening`),
+  KEY `NoRekening` (`NoRekening`),
   KEY `IDTeller` (`IDTeller`)
 ) ENGINE=InnoDB AUTO_INCREMENT=30001 DEFAULT CHARSET=utf8mb4;
 
@@ -165,6 +165,6 @@ ALTER TABLE `Teller`
 --
 ALTER TABLE `Transaksi`
   ADD CONSTRAINT `IDTeller` FOREIGN KEY (`IDTeller`) REFERENCES `Teller` (`IDTeller`),
-  ADD CONSTRAINT `NORekening` FOREIGN KEY (`NORekening`) REFERENCES `Rekening` (`NORekening`);
+  ADD CONSTRAINT `NoRekening` FOREIGN KEY (`NoRekening`) REFERENCES `Rekening` (`NoRekening`);
 COMMIT;
 
