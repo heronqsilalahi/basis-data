@@ -1,5 +1,3 @@
-USE Bank;
-
 -- --------------------------------------------------------
 -- CREATE TABLE -------------------------------------------
 -- --------------------------------------------------------
@@ -83,7 +81,10 @@ INSERT INTO `Nasabah` (`NIK`, `NamaNasabah`, `AlamatNasabah`) VALUES
 
 INSERT INTO `Rekening` (`NoRekening`, `Saldo`, `Status`, `NIK`, `IDCabang`) VALUES
 (20210101, 1000, 'Active', 3021001, 10001),
-(20210102, 1000, 'Aktive', 3121001, 10004);
+(20210102, 1000, 'Active', 3121002, 10002),
+(20210103, 1000, 'Active', 3221002, 10003),
+(20210104, 1000, 'Active', 3421002, 10003),
+(20210105, 1000, 'Aktive', 3721001, 10004);
 
 
 INSERT INTO `Teller` (`IDTeller`, `NamaTeller`, `AlamatTeller`, `TipeTeller`, `IDCabang`) VALUES
@@ -97,7 +98,16 @@ INSERT INTO `Teller` (`IDTeller`, `NamaTeller`, `AlamatTeller`, `TipeTeller`, `I
 (Null, 'Well Lin', 'Jl. Veteran, Bogor', 'H', 10003);
 
 
-
+INSERT INTO `Transaksi` (`IDTransaksi`, `NoRekening`, `Jumlah`, `TipeTransaksi`, `IDTeller`) VALUES
+(Null, 20210101, 5000, 'D',20005),
+(Null, 20210101, 500, 'K',20004),
+(Null, 20210102, 5500, 'D',20006),
+(Null, 20210101, 520, 'K',20003),
+(Null, 20210104, 1200, 'D',20007),
+(Null, 20210102, 100, 'K',200052),
+(Null, 20210105, 15000, 'D',20007),
+(Null, 20210103, 450, 'K',20004);
+ 
 -- --------------------------------------------------------
 -- CONSTRAIT TABLE ----------------------------------------
 -- --------------------------------------------------------
